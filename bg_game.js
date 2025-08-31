@@ -6,21 +6,38 @@ function startGame() {
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
+function resizeCanvas() {
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    // 모바일일 경우 화면에 꽉 차게 세로 설정
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  } else {
+    // 데스크탑에서는 고정 크기 유지
+    canvas.width = 800;
+    canvas.height = 400;
+  }
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
 const WIDTH = canvas.width;
 const HEIGHT = canvas.height;
 
 const imageSources = {
-  bang_default: "./img/bang.png",
-  bang_dental: "./img/bang_dental.png",
-  bang_n95: "./img/bang_n95.png",
-  bang_gown: "./img/bang_gown.png",
-  bang_over: "./img/bang_over.png",
-  pt1: "./img/pt1.png",
-  pt2: "./img/pt2.png",
-  background: "./img/back.PNG",
-  icon_dental: "./img/mask.png",
-  icon_n95: "./img/n95.png",
-  icon_gown: "./img/gw.png"
+  bang_default: "img/bang.png",
+  bang_dental: "img/bang_dental.png",
+  bang_n95: "img/bang_n95.png",
+  bang_gown: "img/bang_gown.png",
+  bang_over: "img/bang_over.png",
+  pt1: "img/pt1.png",
+  pt2: "img/pt2.png",
+  background: "img/back.PNG",
+  icon_dental: "img/mask.png",
+  icon_n95: "img/n95.png",
+  icon_gown: "img/gw.png"
 };
 
 const images = {};
