@@ -6,27 +6,6 @@ function startGame() {
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-function resizeCanvas() {
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
-  if (isMobile) {
-    canvas.width = 800;
-    canvas.height = 400;
-
-    // 캔버스 좌표계 회전
-    ctx.setTransform(1, 0, 0, 1, 0, 0); // 초기화
-    ctx.translate(canvas.width, 0);    // 오른쪽으로 이동
-    ctx.rotate(Math.PI / 2);           // 90도 회전
-  } else {
-    canvas.width = 800;
-    canvas.height = 400;
-    ctx.setTransform(1, 0, 0, 1, 0, 0); // 데스크탑은 회전 없음
-  }
-}
-
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-
 const WIDTH = canvas.width;
 const HEIGHT = canvas.height;
 
