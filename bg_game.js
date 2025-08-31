@@ -10,17 +10,17 @@ const WIDTH = canvas.width;
 const HEIGHT = canvas.height;
 
 const imageSources = {
-  bang_default: "./img/bang.png",
-  bang_dental: "./img/bang_dental.png",
-  bang_n95: "./img/bang_n95.png",
-  bang_gown: "./img/bang_gown.png",
-  bang_over: "./img/bang_over.png",
-  pt1: "./img/pt1.png",
-  pt2: "./img/pt2.png",
-  background: "./img/back.PNG",
-  icon_dental: "./img/mask.png",
-  icon_n95: "./img/n95.png",
-  icon_gown: "./img/gw.png"
+  bang_default: "bggame/img/bang.png",
+  bang_dental: "bggame/img/bang_dental.png",
+  bang_n95: "bggame/img/bang_n95.png",
+  bang_gown: "bggame/img/bang_gown.png",
+  bang_over: "bggame/img/bang_over.png",
+  pt1: "bggame/img/pt1.png",
+  pt2: "bggame/img/pt2.png",
+  background: "bggame/img/back.PNG",
+  icon_dental: "bggame/img/mask.png",
+  icon_n95: "bggame/img/n95.png",
+  icon_gown: "bggame/img/gw.png"
 };
 
 const images = {};
