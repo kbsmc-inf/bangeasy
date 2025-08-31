@@ -10,12 +10,13 @@ function resizeCanvas() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   if (isMobile) {
-    // 모바일일 경우 가로 고정
-    const targetWidth = window.innerHeight * 1.5; // 예: 3:2 비율
-    canvas.width = targetWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = window.innerHeight;
+    canvas.height = window.innerWidth;
+
+    // 캔버스 좌표계를 회전
+    ctx.translate(canvas.width, 0);
+    ctx.rotate(Math.PI / 2);
   } else {
-    // 데스크탑에서는 기존 크기 유지
     canvas.width = 800;
     canvas.height = 400;
   }
