@@ -12,11 +12,6 @@ function resizeCanvas() {
   if (isMobile) {
     canvas.width = window.innerHeight;
     canvas.height = window.innerWidth;
-
-    // 캔버스 좌표계 회전
-    ctx.setTransform(1, 0, 0, 1, 0, 0); // 초기화
-    ctx.translate(canvas.width, 0);    // 오른쪽으로 이동
-    ctx.rotate(Math.PI / 2);           // 90도 회전
   } else {
     canvas.width = 800;
     canvas.height = 400;
