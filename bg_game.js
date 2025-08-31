@@ -10,10 +10,10 @@ function resizeCanvas() {
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   if (isMobile) {
-    // 모바일일 경우 세로 비율로 고정
-    const targetHeight = window.innerWidth * 1.5; // 예: 2:3 비율
-    canvas.width = window.innerWidth;
-    canvas.height = targetHeight;
+    // 모바일일 경우 가로 고정
+    const targetWidth = window.innerHeight * 1.5; // 예: 3:2 비율
+    canvas.width = targetWidth;
+    canvas.height = window.innerHeight;
   } else {
     // 데스크탑에서는 기존 크기 유지
     canvas.width = 800;
