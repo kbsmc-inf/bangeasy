@@ -6,6 +6,11 @@ function startGame() {
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
+canvas.addEventListener("click", handleInput);
+canvas.addEventListener("touchstart", function(e) {
+  e.preventDefault(); // ✅ 모바일 기본 동작 막기
+  handleInput(e);
+}, { passive: false });
 
 /////////////////
 function handleInput(e) {
@@ -26,9 +31,14 @@ function handleInput(e) {
   const mx = (clientX - rect.left) * scaleX;
   const my = (clientY - rect.top) * scaleY;
 
-  // 예시: 버튼 영역 처리
-  if (mx >= 300 && mx <= 500 && my >= 600 && my <= 700) {
-    startGame(); // 또는 requestAnimationFrame(window.gameLoop);
+  if (!gameStarted) {
+    if (mx >= WIDTH / 2 - 225 && mx <= WIDTH / 2 + 222 &&
+        my >= HEIGHT / 2 + 390 && my <= HEIGHT / 2 + 550) {
+      console.log("게임 시작 버튼 클릭됨");
+      gameStarted = true;
+      resetGame();
+      requestAnimationFrame(gameLoop);
+    }
   }
 }
 
@@ -458,3 +468,4 @@ window.handleStart = function() {
     requestAnimationFrame(gameLoop);
 
 };
+
