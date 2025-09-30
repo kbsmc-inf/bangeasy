@@ -8,22 +8,22 @@
   <style>
    body {
   margin: 0;
-  padding: 20px 10px;  /상하 20, 좌우10/
+  padding: 0;
   background-color: #f0f0f0;
   text-align: center;
+  overflow-x: hidden; //좌우 스크롤 방지//
 }
 
 #gameCanvas {
-  width: 100%;
+  width: 95%;
   height: auto;
   max-width: 850px;
   display: block;
-  margin: 20 px auto;
+  margin: 3vh auto 8vh auto;
   padding : 5px;
   touch-action: manipulation;
   asepct-ratio: 17 / 30;      ////850/1500 비율임
 }
-
 
 canvas {
   touch-action: manipulation;
@@ -69,7 +69,7 @@ canvas {
 @media (max-width: 400px) {
   #startScreen {
     width: 90%;
-    font-size: 16px;
+    font-size: 13px;
   }
 }
 
@@ -156,6 +156,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebas
 
 
 </html>
+
 
 
 
