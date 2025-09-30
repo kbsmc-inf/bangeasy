@@ -8,7 +8,7 @@
   <style>
    body {
   margin: 0;
-  padding: 0;
+  padding: 20px 10px;  /상하 20, 좌우10/
   background-color: #f0f0f0;
   text-align: center;
 }
@@ -18,8 +18,10 @@
   height: auto;
   max-width: 850px;
   display: block;
-  margin: 0 auto;
-  touch-action: manipulation; /* ✅ 터치 반응성 향상 */
+  margin: 20 px auto;
+  padding : 5px;
+  touch-action: manipulation;
+  asepct-ratio: 17 / 30;      ////850/1500 비율임
 }
 
 
@@ -76,6 +78,7 @@ canvas {
   
 </head>
 <body>
+  
   <div id="startScreen">
     <h2>게임 시작 전 정보를 입력해주세요</h2>
     <input id="departmentInput" placeholder="부서 (예: 감염관리실)" /><br><br>
@@ -153,6 +156,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebas
 
 
 </html>
+
 
 
 
