@@ -6,6 +6,37 @@ function startGame() {
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
+
+/////////////////
+function handleInput(e) {
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+
+  let clientX, clientY;
+
+  if (e.type.startsWith("touch")) {
+    clientX = e.touches[0].clientX;
+    clientY = e.touches[0].clientY;
+  } else {
+    clientX = e.clientX;
+    clientY = e.clientY;
+  }
+
+  const mx = (clientX - rect.left) * scaleX;
+  const my = (clientY - rect.top) * scaleY;
+
+  // 예시: 버튼 영역 처리
+  if (mx >= 300 && mx <= 500 && my >= 600 && my <= 700) {
+    startGame(); // 또는 requestAnimationFrame(window.gameLoop);
+  }
+}
+
+// ✅ 이벤트 등록
+canvas.addEventListener("click", handleInput);
+canvas.addEventListener("touchstart", handleInput);
+////////////////////
+
 canvas.width = 850;
 canvas.height = 1500;
 
@@ -425,4 +456,5 @@ window.handleStart = function() {
   document.getElementById("gameCanvas").style.display = "block";
 
     requestAnimationFrame(gameLoop);
+
 };
