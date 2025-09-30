@@ -14,13 +14,14 @@
 }
 
 #gameCanvas {
+  width: 100%;
+  height: auto;
+  max-width: 850px;
   display: block;
   margin: 0 auto;
-  width: 100%;         
-  height: auto;      
-  max-width: 850px;    
-  border: 5px solid black;
+  touch-action: manipulation; /* ✅ 터치 반응성 향상 */
 }
+
 
 canvas {
   touch-action: manipulation;
@@ -140,5 +141,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebas
 
 
 </html>
+
 
 
