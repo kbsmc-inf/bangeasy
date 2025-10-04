@@ -8,7 +8,7 @@ const ctx = canvas.getContext("2d");
 
 canvas.addEventListener("click", handleInput);
 canvas.addEventListener("touchstart", function(e) {
-  e.preventDefault(); // ✅ 모바일 기본 동작 막기
+  e.preventDefault(); 
   handleInput(e);
 }, { passive: false });
 
@@ -42,16 +42,16 @@ function handleInput(e) {
   }
   else if (gameOver) {
     //  다시 시작 버튼
-    if (mx >= WIDTH / 2 - 240 && mx <= WIDTH / 2 + 240 &&
-        my >= HEIGHT / 2 - 165 && my <= HEIGHT / 2 -55) {
+    if (mx >= WIDTH / 2 - 245 && mx <= WIDTH / 2 + 220 &&
+        my >= HEIGHT / 2 - 116 && my <= HEIGHT / 2) {
       console.log("다시 시작 버튼 클릭됨");
       resetGame();
       requestAnimationFrame(gameLoop);
     }
 
     // 그만하기 버튼
-    else if (mx >= WIDTH / 2 - 240 && mx <= WIDTH / 2 + 240 &&
-             my >= HEIGHT / 2 - 25 && my <= HEIGHT / 2 + 85) {
+    else if (mx >= WIDTH / 2 - 245 && mx <= WIDTH / 2 + 220 &&
+             my >= HEIGHT / 2 + 17 && my <= HEIGHT / 2 + 135 ) {
       console.log("그만하기 버튼 클릭됨");
       showRankingScreen();
     }
@@ -238,29 +238,6 @@ function drawText(text, x, y, size = 40, color = "black") {
   ctx.fillText(text, x, y);
 }
 
-function drawButton(text, x, y, width, height, color = "#0078FF") {
-  ctx.fillStyle = color;
-  ctx.fillRect(x, y, width, height);
-
-  ctx.save();
-
-  ctx.fillStyle = "white";
-  ctx.font = "40px NanumGothic";
-  ctx.textAlign = "center";  
-  ctx.textBaseline = "middle";
-
-  const centerX = x + width / 2;
-  const centerY = y + height / 2;
-
-  ctx.fillText(text, centerX, centerY);
-
-  ctx.restore();
-}
-
-function drawButtonImage(image, x, y, width, height) {
-  ctx.drawImage(image, x, y, width, height);
-}
-
 function gameLoop() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
@@ -431,4 +408,5 @@ for (let i = patients.length - 1; i >= 0; i--) {
   
   requestAnimationFrame(gameLoop);
 }
+
 
