@@ -59,7 +59,7 @@ function handleInput(e) {
     // 게임 중일 때 보호구 버튼 클릭 처리
     setProtectionByClick(mx, my);
   }
-});
+};
 
 // ✅ 이벤트 등록
 canvas.addEventListener("click", handleInput);
@@ -431,3 +431,4 @@ for (let i = patients.length - 1; i >= 0; i--) {
   
   requestAnimationFrame(gameLoop);
 }
+
