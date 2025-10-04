@@ -155,16 +155,6 @@ function drawTextWithBackground(text, x, y, font = "10px NanumGothic", textColor
   ctx.fillText(text, x, y);
 }
 
-
-//랭킹저장함수
-function saveScoreToFirebase(playerName, department, score) {
-  db.collection("rankings").add({
-    name: playerName,
-    department: department,
-    score: score,
-    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-  });
-}
 //랭킹불러오기함수
 function loadTopRankings(callback) {
   db.collection("rankings")
@@ -441,25 +431,3 @@ for (let i = patients.length - 1; i >= 0; i--) {
   
   requestAnimationFrame(gameLoop);
 }
-
-window.playerInfo = null;
-
-window.handleStart = function() {
-  const department = document.getElementById("departmentInput").value.trim();
-  const name = document.getElementById("nameInput").value.trim();
-
-  if (!department || !name) {
-    alert("부서와 이름을 모두 입력해주세요.");
-    return;
-  }
-
-  window.playerInfo = { department, playerName: name };
-
-  document.getElementById("startScreen").style.display = "none";
-  document.getElementById("gameCanvas").style.display = "block";
-
-    requestAnimationFrame(gameLoop);
-
-};
-
-
