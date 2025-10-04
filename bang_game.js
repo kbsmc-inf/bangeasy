@@ -61,7 +61,7 @@ function handleInput(e) {
   }
 };
 
-// ✅ 이벤트 등록
+// 이벤트 등록
 canvas.addEventListener("click", handleInput);
 canvas.addEventListener("touchstart", handleInput);
 ////////////////////
@@ -155,7 +155,7 @@ function drawTextWithBackground(text, x, y, font = "10px NanumGothic", textColor
   ctx.fillText(text, x, y);
 }
 
-//랭킹불러오기함수
+//랭킹불러오기
 function loadTopRankings(callback) {
   db.collection("rankings")
     .orderBy("score", "desc")
@@ -169,16 +169,16 @@ function loadTopRankings(callback) {
       callback(rankings);
     });
 }
-//랭킹 보여지는 함수
+//랭킹 보기 함수
 function showRankingScreen() {
-  ctx.drawImage(images.ranking, 0, 0, WIDTH, HEIGHT); // 랭킹 배경
+  ctx.drawImage(images.ranking, 0, 0, WIDTH, HEIGHT); 
 
   loadTopRankings((savedRankings) => {
     savedRankings.forEach((entry, index) => {
       const line = `${entry.department}, ${entry.name}, ${entry.score}점`;
-      ctx.font = "bold 35px NanumGothic";
+      ctx.font = "bold 40px NanumGothic";
       ctx.fillStyle = "#00003E";
-      ctx.fillText(line, 200, HEIGHT / 2 + 110 + index * 102.8);
+      ctx.fillText(line, WIDTH / 2 -185, HEIGHT / 2 -460 + index * 180);
     });
   });
 }
@@ -408,5 +408,6 @@ for (let i = patients.length - 1; i >= 0; i--) {
   
   requestAnimationFrame(gameLoop);
 }
+
 
 
