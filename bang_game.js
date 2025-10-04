@@ -41,17 +41,25 @@ function handleInput(e) {
     }
   }
   else if (gameOver) {
-    if (mx >= WIDTH / 2 - 189 && mx <= WIDTH / 2 + 200 &&
-        my >= HEIGHT / 2 - 500 && my <= HEIGHT / 2 -387) {
+    //  다시 시작 버튼
+    if (mx >= WIDTH / 2 - 240 && mx <= WIDTH / 2 + 240 &&
+        my >= HEIGHT / 2 - 165 && my <= HEIGHT / 2 -55) {
       console.log("다시 시작 버튼 클릭됨");
       resetGame();
       requestAnimationFrame(gameLoop);
+    }
+
+    // 그만하기 버튼
+    else if (mx >= WIDTH / 2 - 240 && mx <= WIDTH / 2 + 240 &&
+             my >= HEIGHT / 2 - 25 && my <= HEIGHT / 2 + 85) {
+      console.log("그만하기 버튼 클릭됨");
+      showRankingScreen();
     }
   } else {
     // 게임 중일 때 보호구 버튼 클릭 처리
     setProtectionByClick(mx, my);
   }
-}
+});
 
 // ✅ 이벤트 등록
 canvas.addEventListener("click", handleInput);
@@ -82,7 +90,8 @@ const imageSources = {
   pt4: "img/pt4.png",
   background: "img/bg.jpg",
   startgame: "img/start.jpg",
-  overgame: "img/over.jpg"
+  overgame: "img/over.jpg",
+  ranking: "img/ranking.jpg"
 };
 
 const images = {};
@@ -169,6 +178,19 @@ function loadTopRankings(callback) {
       });
       callback(rankings);
     });
+}
+//랭킹 보여지는 함수
+function showRankingScreen() {
+  ctx.drawImage(images.ranking, 0, 0, WIDTH, HEIGHT); // 랭킹 배경
+
+  loadTopRankings((savedRankings) => {
+    savedRankings.forEach((entry, index) => {
+      const line = `${entry.department}, ${entry.name}, ${entry.score}점`;
+      ctx.font = "bold 35px NanumGothic";
+      ctx.fillStyle = "#00003E";
+      ctx.fillText(line, 200, HEIGHT / 2 + 110 + index * 102.8);
+    });
+  });
 }
 
 
@@ -270,29 +292,17 @@ function gameLoop() {
   ctx.drawImage(images.overgame, 0, 0, WIDTH, HEIGHT);
 
   const msg2 = `${score} 점`;
-  ctx.font = "bold 45px NanumGothic";
-  ctx.fillStyle = "#00003E";
-  ctx.fillText(msg2, WIDTH / 2 - 56, HEIGHT / 2 - 115);
-
-  if (!window.playerInfo && !document.getElementById("inputOverlay").style.display.includes("block")) {
-    document.getElementById("inputOverlay").style.display = "block";
-  }
+  ctx.font = "bold 50px NanumGothic";
+  ctx.fillStyle = "#000027ff";
+  ctx.fillText(msg2, WIDTH / 2 - 56, HEIGHT / 2 - 240);
 
   if (gameOver && !nameEntered && window.playerInfo) {
     const { playerName, department } = window.playerInfo;
     saveScoreToFirebase(playerName, department, score);
     nameEntered = true;
-
-    loadTopRankings((savedRankings) => {
-      savedRankings.forEach((entry, index) => {
-        const line = `${entry.department}, ${entry.name}, ${entry.score}점`;
-        ctx.font = "bold 35px NanumGothic";
-        ctx.fillStyle = "#00003E";
-        ctx.fillText(line, 200, HEIGHT / 2 + 110 + index * 102.8);
-      });
-    });
   }
 
+  // 다시 시작 / 그만하기 버튼은 여기서 처리
   return;
 }
 
@@ -451,4 +461,5 @@ window.handleStart = function() {
     requestAnimationFrame(gameLoop);
 
 };
+
 
