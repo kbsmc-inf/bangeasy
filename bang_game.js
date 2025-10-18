@@ -179,10 +179,10 @@ let stageUpHandled = false;
 // 보호구 매핑
 // --------------------------
 const protectionMap = {
-  "덴탈마스크": ["백일해", "인플루엔자", "성홍열", "유행성 이하선염", "풍진"],
-  "N95": ["결핵", "수두", "홍역", "파종성 대상포진"],
-  "가운+장갑": ["CRE", "Candida auris", "MRSA", "옴", "C.difficile", "MRAB", "MRPA", "Rotavirus"],
-  "안전바늘" : ["C형간염","B형간염","HIV"]
+  "덴탈마스크": ["인플루엔자"],
+  "N95": ["결핵"],
+  "가운+장갑": ["CRE", "옴"],
+  "안전바늘" : ["HIV"] 
 };
 
 // --------------------------
@@ -273,9 +273,7 @@ canvas.addEventListener("touchstart", e => { e.preventDefault(); handleInput(e);
 // 게임 함수
 // ==========================
 function createPatient(offset=0) {
-  let diseases = ["인플루엔자","성홍열","결핵","수두","옴","MRSA","CRE","HIV"];
-  if (stage >= 3) diseases.push(...["백일해","유행성 이하선염","홍역","Candida auris","B형간염","C형간염"]);
-  if (stage >= 5) diseases.push(...["풍진","파종성 대상포진","C.difficile","MRAB","MRPA","Rotavirus"]);
+  let diseases = ["인플루엔자","결핵","옴","CRE","HIV"];
 
   const disease = diseases[Math.floor(Math.random()*diseases.length)];
   const patientImages = [images.pt1, images.pt2, images.pt3, images.pt4];
@@ -354,11 +352,6 @@ function gameLoop() {
 
   if (stageUpTimer > 0) {
     let messageLines = ["Level UP!", "환자가 빨리 다가옵니다!"];
-    if (stage === 3 || stage === 5) {
-      messageLines = ["Level UP!", "새로운 감염병 등장!"];
-    } else if (stage === 7) {
-      messageLines = [`스테이지 ${stage} 도달!`, "환자가 두명씩 등장!"];
-    } 
 
     //게임 배경 그대로
     ctx.drawImage(images.background, 0, 0, WIDTH, HEIGHT);  
@@ -431,7 +424,7 @@ function gameLoop() {
   if (passedPatients >= 10 && stage < 50) {
   stage++;
   passedPatients = 0;
-  speed += stage < 7 ? 0.4 : 0.6; 
+  speed += 1; 
   stageUpTimer = 50;
   stageUpHandled = false;
 }
@@ -515,3 +508,4 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(gameLoop);
   });
 });
+
