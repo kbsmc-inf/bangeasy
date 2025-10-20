@@ -127,19 +127,19 @@ const HEIGHT = canvas.height = 1500;
 // 이미지 로딩
 // --------------------------
 const imageSources = {
-  bang_default: "img/bang.png",
-  bang_dental: "img/bang_dental.png",
-  bang_n95: "img/bang_n95.png",
-  bang_gown: "img/bang_gown.png",
-  bang_needle: "img/bang_needle.png",
-  pt1: "img/pt1.png",
-  pt2: "img/pt2.png",
-  pt3: "img/pt3.png",
-  pt4: "img/pt4.png",
-  background: "img/bg.jpg",
-  startgame: "img/start.jpg",
-  overgame: "img/over.jpg",
-  ranking: "img/ranking.jpg"
+  bang_default: "./img/bang.png",
+  bang_dental: "./img/bang_dental.png",
+  bang_n95: "./img/bang_n95.png",
+  bang_gown: "./img/bang_gown.png",
+  bang_needle: "./img/bang_needle.png",
+  pt1: "./img/pt1.png",
+  pt2: "./img/pt2.png",
+  pt3: "./img/pt3.png",
+  pt4: "./img/pt4.png",
+  background: "./img/bg.jpg",
+  startgame: "./img/start.jpg",
+  overgame: "./img/over.jpg",
+  ranking: "./img/ranking.jpg"
 };
 
 const images = {};
@@ -508,4 +508,5 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(gameLoop);
   });
 });
+
 
