@@ -139,7 +139,7 @@ const imageSources = {
   background: "./img/bg.jpg",
   startgame: "./img/start.jpg",
   overgame: "./img/over.jpg",
-  ranking: "./img/ranking.jpg"
+  ranking: "./img/ranking2.jpg"
 };
 
 const images = {};
@@ -508,6 +508,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(gameLoop);
   });
 });
+
 
 
 
