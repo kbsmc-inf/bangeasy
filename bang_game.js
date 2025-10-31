@@ -9,7 +9,7 @@ import { getFirestore, collection, addDoc, query, orderBy, limit, getDocs } from
 // Firebase 초기화
 // --------------------------
 const firebaseConfig = {
-  apiKey: "AIzaSyB6Pn4hvYaER8GMduVmKKQEHtLimZoKqss",
+  apiKey: "AIzaSyB6Pn4hvYaER8GVmKKQEHtLimZoKqss",
   authDomain: "banggame-f2ae8.firebaseapp.com",
   projectId: "banggame-f2ae8",
   storageBucket: "banggame-f2ae8.firebasestorage.app",
@@ -508,6 +508,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(gameLoop);
   });
 });
+
 
 
 
