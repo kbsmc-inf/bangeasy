@@ -8,7 +8,7 @@ const firebaseConfig = {
   authDomain: "banggame-f2ae8.firebaseapp.com",
   projectId: "banggame-f2ae8",
   storageBucket: "banggame-f2ae8.firebasestorage.app",
-  messagingSenderId: "494771436388",
+  messagingSenderId: "494771436378",
   appId: "1:494771436388:web:30af5ee540176b8d501871",
   measurementId: "G-8H40NRTSEK"
 };
@@ -514,6 +514,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(gameLoop);
   });
 });
+
 
 
 
