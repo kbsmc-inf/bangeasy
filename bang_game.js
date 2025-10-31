@@ -1,9 +1,16 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getFirestore, collection, addDoc, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app2.js";
+import { getFirestore, collection, addDoc, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore2.js";
 
 
 // Firebase 초기화
 const firebaseConfig = {
+  apiKey: "AIzaSyB6Pn4hvYaER8GMduVmKKQEHtLimZoKqss",
+  authDomain: "banggame-f2ae8.firebaseapp.com",
+  projectId: "banggame-f2ae8",
+  storageBucket: "banggame-f2ae8.firebasestorage.app",
+  messagingSenderId: "494771436388",
+  appId: "1:494771436388:web:30af5ee540176b8d501871",
+  measurementId: "G-8H40NRTSEK"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -507,8 +514,6 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(gameLoop);
   });
 });
-
-
 
 
 
