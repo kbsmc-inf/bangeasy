@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
-// Firebase 초기화 설정 (API Key는 보안상 직접 노출에 주의해야 합니다.)
 const firebaseConfig = {
     apiKey: "AIzaSyB6Pn4hvYaER8GMduVmKKQEHtLimZoKqss",
     authDomain: "banggame-f2ae8.firebaseapp.com",
@@ -66,7 +65,7 @@ const HEIGHT = canvas.height = 1500;
 
 
 const imageSources = {
-    ranking: "img/top20.jpg" 
+    ranking: "top20.jpg" 
 };
 
 const images = {};
@@ -133,4 +132,5 @@ function drawTop20Ranking(rankings) {
            380 + index * 50
         );
     });
+
 }
