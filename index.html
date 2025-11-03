@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>방글이를 지켜라 - Top 20 랭킹</title>
+    <style>
+        @font-face {
+            font-family: 'Galmuri11';
+            src: url('./Galmuri11.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+            overflow-x: hidden; 
+        }
+
+        /* 랭킹을 표시하기 위해 캔버스를 기본적으로 보이게 설정 */
+        #gameCanvas {
+            width: 93%;
+            height: auto;
+            max-width: 850px;
+            display: block; /* 'style="display:none;"' 제거 및 여기에서 'block' 설정 */
+            margin: 0.5vh auto 2vh auto;
+            padding: 5px;
+            touch-action: manipulation;
+        }
+
+        /* 기존의 #startScreen 관련 스타일은 더 이상 필요 없습니다. */
+    </style>
+</head>
+<body>
+    
+    <canvas id="gameCanvas" width="850" height="1500"></canvas>
+
+    <script src="top20.js" type="module" defer></script>
+</body>
+</html>
